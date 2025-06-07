@@ -1,0 +1,31 @@
+{
+  "name": "Card Rummy APK Pakistan",
+  "short_name": "Card Rummy",
+  "description": "Play Card Rummy online or download the app for Android devices. Experience the classic card game with friends.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#0a1535",
+  "theme_color": "#0a1535",
+  "orientation": "portrait",
+  "icons": [
+    {
+      "src": "/Card-rummy.webp",
+      "sizes": "192x192",
+      "type": "image/webp",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/Card-rummy.webp",
+      "sizes": "512x512",
+      "type": "image/webp",
+      "purpose": "any maskable"
+    }
+  ],
+  "related_applications": [
+    {
+      "platform": "play",
+      "url": "https://pkcardrummy.com/?from_gameid=5784509&channelCode=100000"
+    }
+  ],
+  "prefer_related_applications": true
+}
