@@ -79,20 +79,20 @@ export default function Header() {
       {isClient && showBanner && (
         <div className="bg-gradient-to-r from-[#fbbf24] to-[#e67e22] text-[#0f172a] py-2 relative">
           <div className="container mx-auto px-4">
-            <div className="flex items-center justify-center">
-              <p className="text-sm font-medium">
+            <div className="flex items-center justify-between">
+              <p className="text-sm font-medium flex-1">
                 <span className="hidden md:inline">Limited Time Offer:</span> Download now and get ₨10 free bonus!
               </p>
               <a 
                 href="https://pkcardrummy.com/?from_gameid=5784509&channelCode=100000" 
-                className="ml-3 px-3 py-1 bg-[#0f172a] text-white text-xs font-bold rounded hover:bg-[#1e293b] transition-colors inline-flex items-center"
+                className="ml-2 px-4 py-1.5 bg-[#0f172a] text-white text-xs md:text-sm font-bold rounded-md hover:bg-[#1e293b] transition-colors inline-flex items-center whitespace-nowrap"
               >
-                <FiDownload className="mr-1" size={12} />
+                <FiDownload className="mr-1.5" size={14} />
                 Get App
               </a>
               <button 
                 onClick={() => setShowBanner(false)}
-                className="absolute right-3 text-[#0f172a] hover:text-[#0f172a]/70 transition-colors"
+                className="ml-2 text-[#0f172a] hover:text-[#0f172a]/70 transition-colors p-1.5"
                 aria-label="Close banner"
               >
                 <FiX size={18} />

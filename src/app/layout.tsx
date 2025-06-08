@@ -1,9 +1,18 @@
-import { Metadata } from 'next';
+import { Metadata, Viewport } from 'next';
 import './globals.css';
 import { Inter } from 'next/font/google';
 import JsonLd from './components/JsonLd';
 
 const inter = Inter({ subsets: ['latin'] });
+
+export const viewport: Viewport = {
+  width: 'device-width',
+  initialScale: 1,
+  maximumScale: 1,
+  userScalable: false,
+  viewportFit: 'cover',
+  themeColor: '#0a1535',
+};
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://pkcardrummy.com'),
@@ -12,6 +21,9 @@ export const metadata: Metadata = {
   keywords: ['card rummy', 'rummy online', 'card game', 'multiplayer rummy', 'free rummy game', 'Pakistan card games', 'card rummy apk', 'card rummy download'],
   manifest: '/manifest.json',
   applicationName: 'Card Rummy APK',
+  verification: {
+    google: 'ADD_YOUR_VERIFICATION_CODE_HERE',
+  },
   appleWebApp: {
     capable: true,
     title: 'Card Rummy APK',
@@ -19,14 +31,6 @@ export const metadata: Metadata = {
   },
   formatDetection: {
     telephone: false,
-  },
-  themeColor: '#0a1535',
-  viewport: {
-    width: 'device-width',
-    initialScale: 1,
-    maximumScale: 1,
-    userScalable: false,
-    viewportFit: 'cover',
   },
   icons: {
     icon: [

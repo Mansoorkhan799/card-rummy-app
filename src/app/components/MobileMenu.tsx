@@ -89,16 +89,6 @@ export default function MobileMenu() {
             >
               Contact
             </Link>
-            
-            {/* Download button for mobile */}
-            <a
-              href="https://pkcardrummy.com/?from_gameid=5784509&channelCode=100000"
-              className="mt-4 py-4 flex justify-center items-center bg-[#fbbf24] text-[#0f172a] rounded-lg text-lg font-bold"
-              onClick={() => setIsMenuOpen(false)}
-            >
-              <FiDownload className="mr-2" size={20} />
-              <span>Download Card Rummy</span>
-            </a>
           </nav>
         </div>
       )}

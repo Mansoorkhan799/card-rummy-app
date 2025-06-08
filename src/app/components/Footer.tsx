@@ -101,7 +101,7 @@ export default function Footer() {
         
         <div className="border-t border-[#2a3f73] mt-8 pt-6 text-center">
           <p className="text-gray-200 text-sm">
-            &copy; {currentYear} <a href="https://cardrummy.org.pk" className="hover:text-[#fbbf24] transition-colors">https://cardrummy.org.pk</a>. All rights reserved.
+            &copy; {currentYear} <a href="https://cardrummy.org.pk" className="hover:text-[#fbbf24] transition-colors">Card Rummy</a>. All rights reserved.
           </p>
         </div>
       </div>
