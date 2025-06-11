@@ -96,7 +96,7 @@ export default function HomeContent() {
     
     return (
       <a
-        href="https://cardrummypk.org/?from_gameid=5784509&channelCode=100000"
+        href="https://pkcardrummy.com/?from_gameid=5784509&channelCode=100000"
         className="relative inline-flex items-center justify-center px-6 pr-16 sm:pr-20 py-3 sm:py-4 bg-[#0a1535] border-2 border-[#00e1ff] rounded-full hover:opacity-90 transition-all shadow-lg text-base sm:text-xl text-white font-bold"
       >
         <span className="tracking-wider mr-2">DOWNLOAD CARD RUMMY</span>

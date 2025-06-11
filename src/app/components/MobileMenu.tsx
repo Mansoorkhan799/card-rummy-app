@@ -96,7 +96,7 @@ export default function MobileMenu() {
             
             <div className="mt-auto mb-safe">
               <a
-                href="https://cardrummypk.org/?from_gameid=5784509&channelCode=100000"
+                href="https://pkcardrummy.com/?from_gameid=5784509&channelCode=100000"
                 className="flex items-center justify-center w-full bg-[#fbbf24] text-[#0f172a] px-4 py-3 rounded-lg font-bold text-lg hover:bg-[#fbbf24]/90 transition-colors mb-3"
               >
                 <FiDownload className="mr-2" size={18} />

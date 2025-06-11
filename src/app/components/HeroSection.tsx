@@ -21,7 +21,7 @@ export default function HeroSection() {
     
     // After hydration, render the actual button
     return (
-      <a href="https://cardrummypk.org/?from_gameid=5784509&channelCode=100000" 
+      <a href="https://pkcardrummy.com/?from_gameid=5784509&channelCode=100000" 
          className="relative inline-flex items-center justify-center px-6 pr-16 sm:pr-20 py-3 sm:px-8 sm:py-4 bg-[#0a1535] border-2 border-[#00e1ff] rounded-full hover:opacity-90 transition-all shadow-lg text-base sm:text-xl text-white font-bold w-full sm:w-auto mx-auto sm:mx-0">
         <span className="tracking-wider mr-2">DOWNLOAD CARD RUMMY</span>
         <div className="absolute right-0 bg-[#ff9800] rounded-full w-10 h-10 sm:w-12 sm:h-12 flex items-center justify-center">
