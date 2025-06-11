@@ -131,7 +131,7 @@ export default function PrivacyPolicy() {
             <section>
               <h2 className="text-xl font-bold mb-4 text-[#fbbf24]">10. Contact Us</h2>
               <p>
-                If you have any questions about this Privacy Policy, please contact us at support@pkcardrummy.com or through the contact form on our website.
+                If you have any questions about this Privacy Policy, please contact us at support@cardrummypk.org or through the contact form on our website.
               </p>
             </section>
           </div>

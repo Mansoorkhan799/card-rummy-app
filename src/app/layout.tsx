@@ -15,7 +15,7 @@ export const viewport: Viewport = {
 };
 
 export const metadata: Metadata = {
-  metadataBase: new URL('https://pkcardrummy.com'),
+  metadataBase: new URL('https://cardrummypk.org'),
   title: 'Card Rummy APK Pakistan | Download Latest Version for Android',
   description: 'Play Card Rummy online or download the app. Experience the classic card game with friends and players across Pakistan, with tournaments and prizes.',
   keywords: ['card rummy', 'rummy online', 'card game', 'multiplayer rummy', 'free rummy game', 'Pakistan card games', 'card rummy apk', 'card rummy download'],
@@ -68,11 +68,11 @@ const websiteData = {
   "@context": "https://schema.org",
   "@type": "WebSite",
   "name": "Card Rummy Pakistan",
-  "url": "https://pkcardrummy.com",
+  "url": "https://cardrummypk.org",
   "description": "Play Card Rummy online or download the app. Experience the classic card game with friends and players across Pakistan.",
   "potentialAction": {
     "@type": "DownloadAction",
-    "target": "https://pkcardrummy.com/?from_gameid=5784509&channelCode=100000"
+    "target": "https://cardrummypk.org/?from_gameid=5784509&channelCode=100000"
   }
 };
 

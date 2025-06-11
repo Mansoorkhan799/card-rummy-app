@@ -73,7 +73,7 @@ export default function DMCAPage() {
                 
                 <div className="mt-8 bg-[#132044] p-6 rounded-lg">
                   <h3 className="text-xl font-bold mb-4 text-white border-b border-[#2a3f73] pb-2">DMCA Agent Contact Information:</h3>
-                  <p className="text-lg">Email: support@cardrummy.com</p>
+                  <p className="text-lg">Email: support@cardrummypk.org</p>
                   <p className="text-lg">Subject: DMCA Notice</p>
                 </div>
                 

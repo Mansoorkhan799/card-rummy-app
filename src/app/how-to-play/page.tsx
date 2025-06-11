@@ -144,7 +144,7 @@ export default function HowToPlayPage() {
                       Download the Card Rummy app and start applying these winning strategies today!
                     </p>
                     <a 
-                      href="https://pkcardrummy.com/?from_gameid=5784509&channelCode=100000" 
+                      href="https://cardrummypk.org/?from_gameid=5784509&channelCode=100000" 
                       className="flex items-center justify-center bg-primary text-white px-4 py-3 rounded-lg font-medium hover:bg-primary-dark transition-all w-full"
                     >
                       <FiDownload className="mr-2" />
@@ -165,7 +165,7 @@ export default function HowToPlayPage() {
               Now that you know the rules, it's time to put your skills to the test. Download the app or play online today!
             </p>
             <div className="flex flex-col md:flex-row gap-4 justify-center">
-              <a href="https://pkcardrummy.com/?from_gameid=5784509&channelCode=100000" className="bg-white text-primary px-8 py-3 rounded-lg font-medium shadow-md hover:bg-gray-100 transition-all transform hover:-translate-y-1 inline-flex items-center justify-center">
+              <a href="https://cardrummypk.org/?from_gameid=5784509&channelCode=100000" className="bg-white text-primary px-8 py-3 rounded-lg font-medium shadow-md hover:bg-gray-100 transition-all transform hover:-translate-y-1 inline-flex items-center justify-center">
                 <FiDownload className="mr-2" />
                 Download App
               </a>

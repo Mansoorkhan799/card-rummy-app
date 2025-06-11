@@ -48,7 +48,7 @@ export default function ContactPage() {
                     <FiMail className="text-primary" size={28} />
                   </div>
                   <p className="font-bold text-gray-800 text-lg">Email</p>
-                  <p className="text-gray-600">support@cardrummy.com</p>
+                  <p className="text-gray-600">support@cardrummypk.org</p>
                 </div>
                 <div className="bg-white rounded-lg p-6 shadow-lg flex flex-col items-center transform transition-transform hover:scale-105">
                   <div className="bg-primary/10 p-4 rounded-full mb-4">
@@ -89,7 +89,7 @@ export default function ContactPage() {
                         </div>
                         <div>
                           <p className="font-semibold">Email</p>
-                          <p className="text-gray-300">support@cardrummy.com</p>
+                          <p className="text-gray-300">support@cardrummypk.org</p>
                         </div>
                       </div>
                       <div className="flex items-start">

@@ -192,7 +192,7 @@ export default function CardRummyForPCPage() {
               Download the app now and start enjoying Card Rummy on any device!
             </p>
             <a 
-              href="https://pkcardrummy.com/?from_gameid=5784509&channelCode=100000" 
+              href="https://cardrummypk.org/?from_gameid=5784509&channelCode=100000" 
               className="inline-flex items-center bg-white text-primary px-6 py-3 rounded-lg text-lg font-bold hover:bg-gray-100 transition-colors"
             >
               <FiDownload className="mr-2" />

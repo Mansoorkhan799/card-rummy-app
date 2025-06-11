@@ -45,13 +45,13 @@ export default function Footer() {
               <a href="https://www.facebook.com/people/Card-Rummy/100094559844696/?mibextid=wwXIfr&rdid=zbeHpiTCsVU51Ukd&share_url=https%3A%2F%2Fwww.facebook.com%2Fshare%2F14xUhrepAF%2F%3Fmibextid%3DwwXIfr" target="_blank" rel="noopener noreferrer" aria-label="Facebook" className="text-white hover:text-[#fbbf24] transition-colors">
                 <FiFacebook size={20} />
               </a>
-              <a href="https://x.com/pkcardrummy" target="_blank" rel="noopener noreferrer" aria-label="Twitter" className="text-white hover:text-[#fbbf24] transition-colors">
+              <a href="https://x.com/cardrummypk" target="_blank" rel="noopener noreferrer" aria-label="Twitter" className="text-white hover:text-[#fbbf24] transition-colors">
                 <FiTwitter size={20} />
               </a>
               <a href="https://www.linkedin.com/in/card-rummy-90a832337/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" className="text-white hover:text-[#fbbf24] transition-colors">
                 <FiLinkedin size={20} />
               </a>
-              <a href="https://www.pinterest.com/pkcardrummy/" target="_blank" rel="noopener noreferrer" aria-label="Pinterest" className="text-white hover:text-[#fbbf24] transition-colors">
+              <a href="https://www.pinterest.com/cardrummypk/" target="_blank" rel="noopener noreferrer" aria-label="Pinterest" className="text-white hover:text-[#fbbf24] transition-colors">
                 <FaPinterest size={20} />
               </a>
             </div>
@@ -101,7 +101,7 @@ export default function Footer() {
         
         <div className="border-t border-[#2a3f73] mt-8 pt-6 text-center">
           <p className="text-gray-200 text-sm">
-            &copy; {currentYear} <a href="https://cardrummy.org.pk" className="hover:text-[#fbbf24] transition-colors">Card Rummy</a>. All rights reserved.
+            &copy; {currentYear} <a href="https://cardrummypk.org" className="hover:text-[#fbbf24] transition-colors">Card Rummy</a>. All rights reserved.
           </p>
         </div>
       </div>

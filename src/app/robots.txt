@@ -3,4 +3,4 @@ User-agent: *
 Allow: /
  
 # Sitemap location
-Sitemap: https://cardrummy.com/sitemap.xml 
+Sitemap: https://cardrummypk.org/sitemap.xml 
