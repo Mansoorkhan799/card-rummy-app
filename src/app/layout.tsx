@@ -2,6 +2,7 @@ import { Metadata, Viewport } from 'next';
 import './globals.css';
 import { Inter } from 'next/font/google';
 import JsonLd from './components/JsonLd';
+import Script from 'next/script';
 
 const inter = Inter({ subsets: ['latin'] });
 
@@ -83,7 +84,31 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" className="h-full">
-      <body className={`${inter.className} h-full overflow-x-hidden`}>
+      <head>
+        {/* This script helps prevent browser extensions from adding attributes that cause hydration issues */}
+        <Script id="hydration-fix" strategy="beforeInteractive">
+          {`
+            (function() {
+              // Clear any extension-added attributes that might cause hydration issues
+              document.addEventListener('DOMContentLoaded', function() {
+                setTimeout(function() {
+                  const body = document.body;
+                  if (body) {
+                    // Remove common extension attributes that cause hydration mismatches
+                    if (body.hasAttribute('data-new-gr-c-s-check-loaded')) {
+                      body.removeAttribute('data-new-gr-c-s-check-loaded');
+                    }
+                    if (body.hasAttribute('data-gr-ext-installed')) {
+                      body.removeAttribute('data-gr-ext-installed');
+                    }
+                  }
+                }, 0);
+              });
+            })();
+          `}
+        </Script>
+      </head>
+      <body className={`${inter.className} h-full overflow-x-hidden`} suppressHydrationWarning>
         <JsonLd type="WebSite" data={websiteData} />
         {children}
       </body>

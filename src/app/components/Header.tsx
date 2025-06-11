@@ -8,7 +8,8 @@ import { FiX, FiDownload, FiRefreshCw } from 'react-icons/fi';
 export default function Header() {
   const [showBanner, setShowBanner] = useState(true);
   const [isScrolled, setIsScrolled] = useState(false);
-  const [isClient, setIsClient] = useState(false);
+  // Use null instead of false for initial client state to avoid hydration mismatch
+  const [isClient, setIsClient] = useState<boolean | null>(null);
   const [devMode, setDevMode] = useState(false);
 
   useEffect(() => {
@@ -73,9 +74,22 @@ export default function Header() {
       });
   };
 
+  // Helper function to render download button
+  const renderDownloadButton = () => {
+    return (
+      <a
+        href="https://cardrummypk.org/?from_gameid=5784509&channelCode=100000"
+        className="inline-flex items-center bg-[#fbbf24] text-[#0f172a] px-4 py-2 rounded-lg hover:bg-[#fbbf24]/90 transition-colors text-sm font-bold"
+      >
+        <FiDownload className="mr-2" size={14} />
+        <span>Download</span>
+      </a>
+    );
+  };
+
   return (
     <>
-      {/* Top notification banner - only show on client side */}
+      {/* Top notification banner - only show on client side after hydration */}
       {isClient && showBanner && (
         <div className="bg-gradient-to-r from-[#fbbf24] to-[#e67e22] text-[#0f172a] py-2 relative">
           <div className="container mx-auto px-4">
@@ -137,26 +151,22 @@ export default function Header() {
             </Link>
           </nav>
           
-          {/* Download and Refresh buttons */}
-          <div className="hidden md:flex items-center space-x-3">
-            {devMode && (
-              <button
-                onClick={refreshCache}
-                className="inline-flex items-center bg-transparent border border-[#fbbf24] text-[#fbbf24] px-3 py-1.5 rounded-lg hover:bg-[#fbbf24]/10 transition-colors text-sm font-medium"
-                title="Refresh cache"
-              >
-                <FiRefreshCw className="mr-1" size={14} />
-                <span>Refresh</span>
-              </button>
-            )}
-            <a
-              href="https://cardrummypk.org/?from_gameid=5784509&channelCode=100000"
-              className="inline-flex items-center bg-[#fbbf24] text-[#0f172a] px-4 py-2 rounded-lg hover:bg-[#fbbf24]/90 transition-colors text-sm font-bold"
-            >
-              <FiDownload className="mr-2" size={14} />
-              <span>Download</span>
-            </a>
-          </div>
+          {/* Download and Refresh buttons - only show on client */}
+          {isClient && (
+            <div className="hidden md:flex items-center space-x-3">
+              {devMode && (
+                <button
+                  onClick={refreshCache}
+                  className="inline-flex items-center bg-transparent border border-[#fbbf24] text-[#fbbf24] px-3 py-1.5 rounded-lg hover:bg-[#fbbf24]/10 transition-colors text-sm font-medium"
+                  title="Refresh cache"
+                >
+                  <FiRefreshCw className="mr-1" size={14} />
+                  <span>Refresh</span>
+                </button>
+              )}
+              {renderDownloadButton()}
+            </div>
+          )}
         </div>
       </header>
     </>

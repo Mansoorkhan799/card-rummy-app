@@ -13,7 +13,8 @@ interface CountdownState {
 export default function DownloadCTA() {
   // Initialize with null for server rendering
   const [countdown, setCountdown] = useState<CountdownState | null>(null);
-  const [isClient, setIsClient] = useState(false);
+  // Use null instead of false to avoid hydration mismatch
+  const [isClient, setIsClient] = useState<boolean | null>(null);
 
   useEffect(() => {
     // Mark that we're now on the client
@@ -52,45 +53,71 @@ export default function DownloadCTA() {
     { icon: <FiShield className="text-[#fbbf24]" size={20} />, text: "Secure Transactions" }
   ];
 
+  // Render countdown component with placeholder for SSR
+  const renderCountdown = () => {
+    // If not hydrated yet or countdown not initialized, show static placeholders
+    if (!isClient || !countdown) {
+      return (
+        <div className="bg-black/20 p-4 rounded-lg mb-6 backdrop-blur-sm w-full max-w-md">
+          <p className="text-sm text-gray-300 mb-2">Special bonus expires in:</p>
+          <div className="flex space-x-3 justify-center">
+            <div className="bg-[#132044] p-2 rounded w-16 text-center">
+              <div className="text-2xl font-bold text-white">23</div>
+              <div className="text-xs text-gray-400">Hours</div>
+            </div>
+            <div className="bg-[#132044] p-2 rounded w-16 text-center">
+              <div className="text-2xl font-bold text-white">59</div>
+              <div className="text-xs text-gray-400">Minutes</div>
+            </div>
+            <div className="bg-[#132044] p-2 rounded w-16 text-center">
+              <div className="text-2xl font-bold text-white">59</div>
+              <div className="text-xs text-gray-400">Seconds</div>
+            </div>
+          </div>
+        </div>
+      );
+    }
+
+    // After hydration, render the actual countdown
+    return (
+      <div className="bg-black/20 p-4 rounded-lg mb-6 backdrop-blur-sm w-full max-w-md">
+        <p className="text-sm text-gray-300 mb-2">Special bonus expires in:</p>
+        <div className="flex space-x-3 justify-center">
+          <div className="bg-[#132044] p-2 rounded w-16 text-center">
+            <div className="text-2xl font-bold text-white">{countdown.hours.toString().padStart(2, '0')}</div>
+            <div className="text-xs text-gray-400">Hours</div>
+          </div>
+          <div className="bg-[#132044] p-2 rounded w-16 text-center">
+            <div className="text-2xl font-bold text-white">{countdown.minutes.toString().padStart(2, '0')}</div>
+            <div className="text-xs text-gray-400">Minutes</div>
+          </div>
+          <div className="bg-[#132044] p-2 rounded w-16 text-center">
+            <div className="text-2xl font-bold text-white">{countdown.seconds.toString().padStart(2, '0')}</div>
+            <div className="text-xs text-gray-400">Seconds</div>
+          </div>
+        </div>
+      </div>
+    );
+  };
+
   return (
-    <section className="py-16 bg-gradient-to-r from-[#0a1535] to-[#1e3a8a] text-white relative overflow-hidden">
-      {/* Background elements */}
-      <div className="absolute inset-0 overflow-hidden">
-        <div className="absolute top-1/3 right-1/4 w-32 h-32 bg-[#fbbf24]/5 rounded-full blur-3xl"></div>
-        <div className="absolute bottom-1/4 left-1/3 w-48 h-48 bg-[#1e3a8a]/10 rounded-full blur-3xl"></div>
+    <section className="py-16 bg-gradient-to-r from-[#0a1535] to-[#132044] relative overflow-hidden">
+      {/* Background Elements */}
+      <div className="absolute inset-0 z-0">
+        <div className="absolute top-1/4 left-1/4 w-24 h-24 bg-[#fbbf24]/5 rounded-full blur-3xl"></div>
+        <div className="absolute bottom-1/3 right-1/3 w-32 h-32 bg-[#1e3a8a]/10 rounded-full blur-3xl"></div>
       </div>
       
       <div className="container mx-auto px-4 relative z-10">
-        <div className="flex flex-col items-center justify-center text-center max-w-2xl mx-auto">
-          <div className="inline-block bg-[#fbbf24]/20 px-4 py-1 rounded-full text-[#fbbf24] text-sm font-semibold mb-4">
-            LIMITED TIME OFFER
-          </div>
-          <h2 className="text-3xl md:text-4xl font-bold mb-4">Download The App</h2>
-          <p className="text-lg mb-6">
-            Take Card Rummy with you wherever you go. Download the mobile app for
-            Android to enjoy the full gaming experience.
+        <div className="max-w-xl mx-auto text-center text-white">
+          <h2 className="text-3xl md:text-4xl font-bold mb-6">
+            Download <span className="text-[#fbbf24]">Card Rummy</span> Today
+          </h2>
+          <p className="text-lg mb-8 text-gray-300">
+            Get started with Card Rummy and claim your welcome bonus. Join thousands of players enjoying the best card games in Pakistan.
           </p>
-
-          {/* Countdown timer - only show when client-side */}
-          {isClient && countdown && (
-            <div className="bg-black/20 p-4 rounded-lg mb-6 backdrop-blur-sm w-full max-w-md">
-              <p className="text-sm text-gray-300 mb-2">Special bonus expires in:</p>
-              <div className="flex space-x-3 justify-center">
-                <div className="bg-[#132044] p-2 rounded w-16 text-center">
-                  <div className="text-2xl font-bold text-white">{countdown.hours.toString().padStart(2, '0')}</div>
-                  <div className="text-xs text-gray-400">Hours</div>
-                </div>
-                <div className="bg-[#132044] p-2 rounded w-16 text-center">
-                  <div className="text-2xl font-bold text-white">{countdown.minutes.toString().padStart(2, '0')}</div>
-                  <div className="text-xs text-gray-400">Minutes</div>
-                </div>
-                <div className="bg-[#132044] p-2 rounded w-16 text-center">
-                  <div className="text-2xl font-bold text-white">{countdown.seconds.toString().padStart(2, '0')}</div>
-                  <div className="text-xs text-gray-400">Seconds</div>
-                </div>
-              </div>
-            </div>
-          )}
+          
+          {renderCountdown()}
 
           {/* Feature list */}
           <div className="grid grid-cols-2 gap-3 mb-6 max-w-md mx-auto">

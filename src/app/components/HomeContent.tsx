@@ -2,7 +2,7 @@ import { FiCheck, FiDownload, FiUser, FiDollarSign, FiGift, FiZap, FiLock, FiSma
 import { useState, useEffect } from 'react';
 
 export default function HomeContent() {
-  const [isClient, setIsClient] = useState(false);
+  const [isClient, setIsClient] = useState<boolean | null>(null);
 
   useEffect(() => {
     setIsClient(true);
@@ -88,6 +88,24 @@ export default function HomeContent() {
     "Take regular breaks between gaming sessions",
     "Never chase losses by increasing your stakes"
   ];
+
+  const renderDownloadButton = () => {
+    if (isClient === null) {
+      return <div className="h-14 w-64 mx-auto bg-[#0a1535] border-2 border-[#00e1ff] rounded-full"></div>;
+    }
+    
+    return (
+      <a
+        href="https://cardrummypk.org/?from_gameid=5784509&channelCode=100000"
+        className="relative inline-flex items-center justify-center px-6 pr-16 sm:pr-20 py-3 sm:py-4 bg-[#0a1535] border-2 border-[#00e1ff] rounded-full hover:opacity-90 transition-all shadow-lg text-base sm:text-xl text-white font-bold"
+      >
+        <span className="tracking-wider mr-2">DOWNLOAD CARD RUMMY</span>
+        <div className="absolute right-0 bg-[#ff9800] rounded-full w-10 h-10 sm:w-12 sm:h-12 flex items-center justify-center">
+          <FiChevronDown className="text-white" size={20} />
+        </div>
+      </a>
+    );
+  };
 
   return (
     <section className="py-16 bg-[#0a1535] text-white">
@@ -492,19 +510,7 @@ export default function HomeContent() {
               <li className="text-left">Open the app, register, and start playing!</li>
             </ol>
             <div className="mt-6 mb-8 flex justify-center">
-              {isClient ? (
-                <a
-                  href="https://cardrummypk.org/?from_gameid=5784509&channelCode=100000"
-                  className="relative inline-flex items-center justify-center px-6 pr-16 sm:pr-20 py-3 sm:py-4 bg-[#0a1535] border-2 border-[#00e1ff] rounded-full hover:opacity-90 transition-all shadow-lg text-base sm:text-xl text-white font-bold"
-                >
-                  <span className="tracking-wider mr-2">DOWNLOAD CARD RUMMY</span>
-                  <div className="absolute right-0 bg-[#ff9800] rounded-full w-10 h-10 sm:w-12 sm:h-12 flex items-center justify-center">
-                    <FiChevronDown className="text-white" size={20} />
-                  </div>
-                </a>
-              ) : (
-                <div className="h-14 w-64 bg-[#0a1535] border-2 border-[#00e1ff] rounded-full"></div>
-              )}
+              {renderDownloadButton()}
             </div>
           </div>
 
@@ -663,19 +669,7 @@ export default function HomeContent() {
               With its vast game selection, real cash rewards, smooth performance, and secure transactions, Card Rummy APK is the go-to Card Rummy app for players in Pakistan.
             </p>
             <div className="bg-[#132044] p-4 rounded-lg text-center font-bold text-xl">
-              {isClient ? (
-                <a
-                  href="https://cardrummypk.org/?from_gameid=5784509&channelCode=100000"
-                  className="relative inline-flex items-center justify-center px-6 pr-16 sm:pr-20 py-3 sm:py-4 bg-[#0a1535] border-2 border-[#00e1ff] rounded-full hover:opacity-90 transition-all shadow-lg text-base sm:text-xl text-white font-bold"
-                >
-                  <span className="tracking-wider mr-2">DOWNLOAD CARD RUMMY</span>
-                  <div className="absolute right-0 bg-[#ff9800] rounded-full w-10 h-10 sm:w-12 sm:h-12 flex items-center justify-center">
-                    <FiChevronDown className="text-white" size={20} />
-                  </div>
-                </a>
-              ) : (
-                <div className="h-14 w-64 mx-auto bg-[#0a1535] border-2 border-[#00e1ff] rounded-full"></div>
-              )}
+              {renderDownloadButton()}
             </div>
           </div>
 

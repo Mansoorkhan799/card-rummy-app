@@ -4,11 +4,32 @@ import { FiDownload, FiUsers, FiAward, FiDollarSign, FiChevronDown } from 'react
 import { useState, useEffect } from 'react';
 
 export default function HeroSection() {
-  const [isClient, setIsClient] = useState(false);
+  // Use null as initial state instead of false to avoid hydration mismatch
+  const [isClient, setIsClient] = useState<boolean | null>(null);
 
   useEffect(() => {
+    // Mark component as hydrated
     setIsClient(true);
   }, []);
+
+  // Render a download button that's consistent between server and client
+  const renderDownloadButton = () => {
+    if (isClient === null) {
+      // Show placeholder with exact same dimensions during SSR
+      return <div className="h-14 w-64 bg-[#0a1535] border-2 border-[#00e1ff] rounded-full"></div>;
+    }
+    
+    // After hydration, render the actual button
+    return (
+      <a href="https://cardrummypk.org/?from_gameid=5784509&channelCode=100000" 
+         className="relative inline-flex items-center justify-center px-6 pr-16 sm:pr-20 py-3 sm:px-8 sm:py-4 bg-[#0a1535] border-2 border-[#00e1ff] rounded-full hover:opacity-90 transition-all shadow-lg text-base sm:text-xl text-white font-bold w-full sm:w-auto mx-auto sm:mx-0">
+        <span className="tracking-wider mr-2">DOWNLOAD CARD RUMMY</span>
+        <div className="absolute right-0 bg-[#ff9800] rounded-full w-10 h-10 sm:w-12 sm:h-12 flex items-center justify-center">
+          <FiChevronDown className="text-white" size={20} />
+        </div>
+      </a>
+    );
+  };
 
   return (
     <section className="hero-section py-10 md:py-24 bg-[#0a1535] text-white relative overflow-hidden">
@@ -63,17 +84,7 @@ export default function HeroSection() {
               </div>
               
               <div className="flex flex-wrap justify-start gap-4 w-full">
-                {isClient ? (
-                  <a href="https://cardrummypk.org/?from_gameid=5784509&channelCode=100000" 
-                     className="relative inline-flex items-center justify-center px-6 pr-16 sm:pr-20 py-3 sm:px-8 sm:py-4 bg-[#0a1535] border-2 border-[#00e1ff] rounded-full hover:opacity-90 transition-all shadow-lg text-base sm:text-xl text-white font-bold w-full sm:w-auto mx-auto sm:mx-0">
-                    <span className="tracking-wider mr-2">DOWNLOAD CARD RUMMY</span>
-                    <div className="absolute right-0 bg-[#ff9800] rounded-full w-10 h-10 sm:w-12 sm:h-12 flex items-center justify-center">
-                      <FiChevronDown className="text-white" size={20} />
-                    </div>
-                  </a>
-                ) : (
-                  <div className="h-14 w-64 bg-[#0a1535] border-2 border-[#00e1ff] rounded-full"></div>
-                )}
+                {renderDownloadButton()}
                 <div className="text-xs text-gray-300 mt-2 italic w-full text-center sm:text-left">*Available for Android devices only</div>
               </div>
             </div>

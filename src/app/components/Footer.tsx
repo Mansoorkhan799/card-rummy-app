@@ -8,10 +8,14 @@ import { useState, useEffect } from 'react';
 
 export default function Footer() {
   const currentYear = new Date().getFullYear();
-  const [imageUrl, setImageUrl] = useState('/Card-rummy.webp');
+  // Use null as initial state to avoid hydration mismatch
+  const [imageUrl, setImageUrl] = useState<string | null>(null);
   
   // Apply cache busting only after hydration is complete
   useEffect(() => {
+    // Set initial image URL
+    setImageUrl('/Card-rummy.webp');
+    
     // Wait a short time to ensure hydration is complete
     const timer = setTimeout(() => {
       setImageUrl(`/Card-rummy.webp?v=${Date.now()}`);
@@ -28,7 +32,7 @@ export default function Footer() {
           <div>
             <div className="flex items-center gap-3 mb-4">
               <Image 
-                src={imageUrl}
+                src={imageUrl || '/Card-rummy.webp'} // Fallback for SSR
                 alt="Card Rummy Logo" 
                 width={40} 
                 height={40} 
