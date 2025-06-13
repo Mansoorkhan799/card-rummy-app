@@ -94,13 +94,12 @@ export default function HeroSection() {
               <Image
                 src="/Card-rummy.webp"
                 alt="Screenshot of Card Rummy game interface"
-                width={250}
-                height={250}
-                className="transform transition-all hover:scale-105 img-optimize"
+                width={400}
+                height={400}
                 sizes="(max-width: 768px) 250px, 400px"
                 quality={80}
-                style={{ objectFit: "contain" }}
                 priority
+                fetchPriority="high"
                 loading="eager"
                 placeholder="blur"
                 blurDataURL="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mNcvXp1PQAGTwJs6OQmwAAAAABJRU5ErkJggg=="
