@@ -1,5 +1,6 @@
 import { FiCheck, FiDownload, FiUser, FiDollarSign, FiGift, FiZap, FiLock, FiSmartphone, FiAward, FiHelpCircle, FiEye, FiStar, FiHeadphones, FiShield, FiAward as FiTrophy, FiCreditCard, FiSmile, FiHeart, FiInfo, FiRefreshCw, FiChevronDown } from 'react-icons/fi';
 import { useState, useEffect } from 'react';
+import Image from 'next/image';
 
 export default function HomeContent() {
   const [isClient, setIsClient] = useState<boolean | null>(null);
@@ -129,12 +130,13 @@ export default function HomeContent() {
               Card Rummy is a popular application designed for Android users in Pakistan. It offers a huge collection of classic and desi card games, slot machines, fishing games, and dice games. Players can enjoy popular games like Teen Patti, Poker, and Blackjack, while earning real cash rewards that can be easily withdrawn via JazzCash, Easypaisa, or bank accounts.
             </p>
             <div className="my-6">
-              <img 
-                src="/images/card-rummy-apk-pakistan.png" 
-                alt="Card Rummy APK Pakistan" 
-                width="400"
-                height="225"
+              <Image
+                src="/images/card-rummy-apk-pakistan.png"
+                alt="Card Rummy APK Pakistan"
+                width={400}
+                height={225}
                 className="rounded-lg shadow-lg w-full h-auto border-2 border-[#fbbf24]/30"
+                sizes="(max-width: 768px) 100vw, 400px"
               />
             </div>
           </div>
@@ -292,12 +294,13 @@ export default function HomeContent() {
                 <h4 className="text-xl font-bold">Other Features</h4>
               </div>
               <div className="my-4 flex justify-center">
-                <img 
-                  src="/card rummy apk.webp" 
-                  alt="Card Rummy APK Features" 
-                  width="400"
-                  height="225"
+                <Image
+                  src="/card rummy apk.webp"
+                  alt="Card Rummy APK Features"
+                  width={400}
+                  height={225}
                   className="rounded-lg shadow-lg max-w-full h-auto border-2 border-[#fbbf24]/30"
+                  sizes="(max-width: 768px) 100vw, 400px"
                 />
               </div>
               <ul className="space-y-3">
@@ -541,10 +544,13 @@ export default function HomeContent() {
               <div className="bg-[#132044] p-6 rounded-lg">
                 <h4 className="text-xl font-bold mb-3 text-left">Deposit:</h4>
                 <div className="my-4 flex justify-center">
-                  <img 
-                    src="/card rummy add money.webp" 
-                    alt="Card Rummy Add Money" 
+                  <Image
+                    src="/card rummy add money.webp"
+                    alt="Card Rummy Add Money"
                     className="rounded-lg shadow-lg max-w-full h-auto border-2 border-[#fbbf24]/30"
+                    width={400}
+                    height={225}
+                    sizes="(max-width: 768px) 100vw, 400px"
                   />
                 </div>
                 <ol className="list-decimal list-inside space-y-2">
@@ -555,10 +561,13 @@ export default function HomeContent() {
               <div className="bg-[#132044] p-6 rounded-lg">
                 <h4 className="text-xl font-bold mb-3 text-left">Withdraw:</h4>
                 <div className="my-4 flex justify-center">
-                  <img 
-                    src="/card rummy withdraw money.webp" 
-                    alt="Card Rummy Withdraw Money" 
+                  <Image
+                    src="/card rummy withdraw money.webp"
+                    alt="Card Rummy Withdraw Money"
                     className="rounded-lg shadow-lg max-w-full h-auto border-2 border-[#fbbf24]/30"
+                    width={400}
+                    height={225}
+                    sizes="(max-width: 768px) 100vw, 400px"
                   />
                 </div>
                 <ol className="list-decimal list-inside space-y-2">
@@ -583,10 +592,13 @@ export default function HomeContent() {
                 </ul>
               </div>
               <div className="flex justify-center items-center">
-                <img 
-                  src="/card rummy refferal.webp" 
-                  alt="Card Rummy Referral Program" 
+                <Image
+                  src="/card rummy refferal.webp"
+                  alt="Card Rummy Referral Program"
                   className="rounded-lg shadow-lg max-w-full h-auto border-2 border-[#fbbf24]/30"
+                  width={400}
+                  height={225}
+                  sizes="(max-width: 768px) 100vw, 400px"
                 />
               </div>
             </div>

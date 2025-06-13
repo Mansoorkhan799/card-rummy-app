@@ -84,15 +84,7 @@ export default function Testimonials() {
               </div>
               <p className="text-gray-300 italic mb-6">"{testimonial.quote}"</p>
               <div className="flex items-center">
-                <div className="h-12 w-12 rounded-full bg-[#fbbf24]/20 flex items-center justify-center mr-4">
-                  <Image
-                    src={testimonial.avatar}
-                    alt={testimonial.name}
-                    width={48}
-                    height={48}
-                    className="rounded-full"
-                  />
-                </div>
+                {/* Avatar removed as per request */}
                 <div>
                   <p className="font-bold text-white">{testimonial.name}</p>
                   <p className="text-sm text-gray-400">{testimonial.role}</p>
@@ -120,15 +112,7 @@ export default function Testimonials() {
             </div>
             <p className="text-gray-300 italic mb-6">"{testimonials[activeIndex].quote}"</p>
             <div className="flex items-center">
-              <div className="h-12 w-12 rounded-full bg-[#fbbf24]/20 flex items-center justify-center mr-4">
-                <Image
-                  src={testimonials[activeIndex].avatar}
-                  alt={testimonials[activeIndex].name}
-                  width={48}
-                  height={48}
-                  className="rounded-full"
-                />
-              </div>
+              {/* Avatar removed as per request */}
               <div>
                 <p className="font-bold text-white">{testimonials[activeIndex].name}</p>
                 <p className="text-sm text-gray-400">{testimonials[activeIndex].role}</p>
