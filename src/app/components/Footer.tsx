@@ -33,7 +33,7 @@ export default function Footer() {
             <div className="flex items-center gap-3 mb-4">
               <Image 
                 src={imageUrl || '/Card-rummy.webp'} // Fallback for SSR
-                alt="Card Rummy Logo" 
+                alt="Card Rummy logo"
                 width={40} 
                 height={40} 
                 className="rounded-md"

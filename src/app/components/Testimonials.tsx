@@ -1,7 +1,7 @@
 "use client";
 
 import Image from 'next/image';
-import { FiStar, FiUser } from 'react-icons/fi';
+import { FiStar, FiUser, FiChevronLeft, FiChevronRight } from 'react-icons/fi';
 import { useState, useEffect } from 'react';
 
 const testimonials = [
@@ -38,6 +38,14 @@ export default function Testimonials() {
     }, 5000);
     return () => clearInterval(interval);
   }, []);
+
+  const handlePrev = () => {
+    setActiveIndex((current) => (current - 1 + testimonials.length) % testimonials.length);
+  };
+
+  const handleNext = () => {
+    setActiveIndex((current) => (current + 1) % testimonials.length);
+  };
 
   return (
     <section className="py-16 bg-[#0d1b3a] relative overflow-hidden">
@@ -77,7 +85,13 @@ export default function Testimonials() {
               <p className="text-gray-300 italic mb-6">"{testimonial.quote}"</p>
               <div className="flex items-center">
                 <div className="h-12 w-12 rounded-full bg-[#fbbf24]/20 flex items-center justify-center mr-4">
-                  <FiUser size={24} className="text-[#fbbf24]" />
+                  <Image
+                    src={testimonial.avatar}
+                    alt={testimonial.name}
+                    width={48}
+                    height={48}
+                    className="rounded-full"
+                  />
                 </div>
                 <div>
                   <h4 className="font-bold text-white">{testimonial.name}</h4>
@@ -107,7 +121,13 @@ export default function Testimonials() {
             <p className="text-gray-300 italic mb-6">"{testimonials[activeIndex].quote}"</p>
             <div className="flex items-center">
               <div className="h-12 w-12 rounded-full bg-[#fbbf24]/20 flex items-center justify-center mr-4">
-                <FiUser size={24} className="text-[#fbbf24]" />
+                <Image
+                  src={testimonials[activeIndex].avatar}
+                  alt={testimonials[activeIndex].name}
+                  width={48}
+                  height={48}
+                  className="rounded-full"
+                />
               </div>
               <div>
                 <h4 className="font-bold text-white">{testimonials[activeIndex].name}</h4>
@@ -117,16 +137,20 @@ export default function Testimonials() {
             
             {/* Carousel indicators */}
             <div className="flex justify-center mt-6 space-x-2">
-              {testimonials.map((_, index) => (
-                <button
-                  key={index}
-                  onClick={() => setActiveIndex(index)}
-                  className={`w-2 h-2 rounded-full transition-all ${
-                    index === activeIndex ? 'bg-[#fbbf24] w-6' : 'bg-gray-500'
-                  }`}
-                  aria-label={`View testimonial ${index + 1}`}
-                />
-              ))}
+              <button
+                className="h-12 w-12 flex items-center justify-center rounded-full bg-[#fbbf24] text-[#0a1535] shadow-lg hover:bg-[#fbbf24]/90 transition-colors focus:outline-none focus:ring-2 focus:ring-[#fbbf24] focus:ring-offset-2 mx-2 min-w-[44px] min-h-[44px]"
+                aria-label="Previous testimonial"
+                onClick={handlePrev}
+              >
+                <FiChevronLeft size={24} />
+              </button>
+              <button
+                className="h-12 w-12 flex items-center justify-center rounded-full bg-[#fbbf24] text-[#0a1535] shadow-lg hover:bg-[#fbbf24]/90 transition-colors focus:outline-none focus:ring-2 focus:ring-[#fbbf24] focus:ring-offset-2 mx-2 min-w-[44px] min-h-[44px]"
+                aria-label="Next testimonial"
+                onClick={handleNext}
+              >
+                <FiChevronRight size={24} />
+              </button>
             </div>
           </div>
         </div>

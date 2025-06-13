@@ -93,7 +93,7 @@ export default function HeroSection() {
             <div className="relative w-auto h-auto max-w-[250px] md:max-w-[400px] max-h-[250px] md:max-h-[400px]">
               <Image
                 src="/Card-rummy.webp"
-                alt="Rummy Card Game"
+                alt="Screenshot of Card Rummy game interface"
                 width={250}
                 height={250}
                 className="transform transition-all hover:scale-105 img-optimize"

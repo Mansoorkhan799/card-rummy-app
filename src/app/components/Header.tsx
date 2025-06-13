@@ -4,6 +4,7 @@ import Link from 'next/link';
 import MobileMenu from './MobileMenu';
 import { useState, useEffect } from 'react';
 import { FiX, FiDownload, FiRefreshCw } from 'react-icons/fi';
+import Image from 'next/image';
 
 export default function Header() {
   const [showBanner, setShowBanner] = useState(true);
@@ -106,7 +107,7 @@ export default function Header() {
               </a>
               <button 
                 onClick={() => setShowBanner(false)}
-                className="ml-2 text-[#0f172a] hover:text-[#0f172a]/70 transition-colors p-1.5"
+                className="ml-2 text-[#0f172a] hover:text-[#0f172a]/70 transition-colors p-1.5 min-w-[44px] min-h-[44px] flex items-center justify-center"
                 aria-label="Close banner"
               >
                 <FiX size={18} />
@@ -120,9 +121,13 @@ export default function Header() {
         <div className="container mx-auto px-4 flex items-center justify-between">
           <Link href="/" className="flex items-center group">
             <div className="w-8 h-8 rounded mr-2 group-hover:scale-110 transition-transform overflow-hidden">
-              <img 
+              <Image 
                 src="/Card-rummy.webp" 
-                alt="Card Rummy" 
+                alt="Card Rummy logo" 
+                role="img"
+                aria-label="Card Rummy logo"
+                width={32}
+                height={32}
                 className="w-full h-full object-cover"
               />
             </div>
