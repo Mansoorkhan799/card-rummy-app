@@ -94,7 +94,7 @@ export default function Testimonials() {
                   />
                 </div>
                 <div>
-                  <h4 className="font-bold text-white">{testimonial.name}</h4>
+                  <p className="font-bold text-white">{testimonial.name}</p>
                   <p className="text-sm text-gray-400">{testimonial.role}</p>
                 </div>
               </div>
@@ -130,7 +130,7 @@ export default function Testimonials() {
                 />
               </div>
               <div>
-                <h4 className="font-bold text-white">{testimonials[activeIndex].name}</h4>
+                <p className="font-bold text-white">{testimonials[activeIndex].name}</p>
                 <p className="text-sm text-gray-400">{testimonials[activeIndex].role}</p>
               </div>
             </div>

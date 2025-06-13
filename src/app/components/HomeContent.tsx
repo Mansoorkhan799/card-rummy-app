@@ -121,10 +121,10 @@ export default function HomeContent() {
           </div>
 
           <div className="mb-12 bg-[#0f172a] p-6 rounded-lg">
-            <h3 className="text-2xl font-bold mb-4 text-left flex items-center">
+            <h2 className="text-2xl font-bold mb-4 text-left flex items-center">
               <FiSmartphone className="mr-3 text-[#fbbf24]" size={24} />
               What is Card Rummy APK?
-            </h3>
+            </h2>
             <p className="mb-4 text-left">
               Card Rummy is a popular application designed for Android users in Pakistan. It offers a huge collection of classic and desi card games, slot machines, fishing games, and dice games. Players can enjoy popular games like Teen Patti, Poker, and Blackjack, while earning real cash rewards that can be easily withdrawn via JazzCash, Easypaisa, or bank accounts.
             </p>
@@ -132,16 +132,18 @@ export default function HomeContent() {
               <img 
                 src="/images/card-rummy-apk-pakistan.png" 
                 alt="Card Rummy APK Pakistan" 
+                width="400"
+                height="225"
                 className="rounded-lg shadow-lg w-full h-auto border-2 border-[#fbbf24]/30"
               />
             </div>
           </div>
 
           <div className="mb-12">
-            <h3 className="text-2xl font-bold mb-6 text-left flex items-center">
+            <h2 className="text-2xl font-bold mb-6 text-left flex items-center">
               <FiAward className="mr-3 text-[#fbbf24]" size={24} />
               Key Features of Card Rummy APK
-            </h3>
+            </h2>
             <p className="mb-6 text-left">
               Let's explore what makes this Card Rummy app stand out from the rest:
             </p>
@@ -293,6 +295,8 @@ export default function HomeContent() {
                 <img 
                   src="/card rummy apk.webp" 
                   alt="Card Rummy APK Features" 
+                  width="400"
+                  height="225"
                   className="rounded-lg shadow-lg max-w-full h-auto border-2 border-[#fbbf24]/30"
                 />
               </div>
