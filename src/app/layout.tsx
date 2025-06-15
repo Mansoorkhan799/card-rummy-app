@@ -2,6 +2,17 @@ import { Metadata, Viewport } from 'next';
 import './globals.css';
 import JsonLd from './components/JsonLd';
 import Script from 'next/script';
+import { Inter } from 'next/font/google';
+
+// Optimize font loading
+const inter = Inter({
+  subsets: ['latin'],
+  display: 'swap',
+  variable: '--font-inter',
+  preload: true,
+  weight: ['400', '500', '600', '700'],
+  fallback: ['system-ui', 'sans-serif'],
+});
 
 export const viewport: Viewport = {
   width: 'device-width',
@@ -93,10 +104,35 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="en" className="h-full">
+    <html lang="en" className={`h-full ${inter.variable}`}>
       <head>
-        {/* This script helps prevent browser extensions from adding attributes that cause hydration issues */}
-        <Script id="hydration-fix" strategy="beforeInteractive">
+        {/* Preload critical assets */}
+        <link 
+          rel="preload" 
+          href="/optimized/Card-rummy.webp" 
+          as="image"
+          fetchPriority="high"
+          type="image/webp"
+        />
+        <link 
+          rel="preload"
+          href="/optimized/Card-rummy.avif"
+          as="image"
+          fetchPriority="high" 
+          type="image/avif"
+        />
+        
+        {/* Preconnects for critical third-party resources */}
+        <link rel="preconnect" href="https://pkcardrummy.com" crossOrigin="anonymous" />
+
+        {/* Canonical URL for SEO */}
+        <link rel="canonical" href="https://cardrummypk.org" />
+        
+        {/* DNS prefetching */}
+        <link rel="dns-prefetch" href="//pkcardrummy.com" />
+        
+        {/* Hide render-blocking script until interaction */}
+        <Script id="hydration-fix" strategy="lazyOnload">
           {`
             (function() {
               // Clear any extension-added attributes that might cause hydration issues
@@ -117,21 +153,6 @@ export default function RootLayout({
             })();
           `}
         </Script>
-        {/* Add preconnect for faster font loading */}
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
-        <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
-        
-        {/* Preload critical assets */}
-        <link rel="preload" href="/optimized/Card-rummy.webp" as="image" />
-
-        {/* Canonical URL for SEO */}
-        <link rel="canonical" href="https://cardrummypk.org" />
-        
-        {/* DNS prefetch for performance */}
-        <link rel="dns-prefetch" href="//fonts.googleapis.com" />
-        <link rel="dns-prefetch" href="//fonts.gstatic.com" />
-        <link rel="dns-prefetch" href="//pkcardrummy.com" />
       </head>
       <body className="font-sans h-full overflow-x-hidden" suppressHydrationWarning>
         <JsonLd type="WebSite" data={websiteData} />

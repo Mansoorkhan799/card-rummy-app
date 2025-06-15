@@ -9,7 +9,13 @@
   --text-dark: #0f172a;
   --accent-color: #fbbf24;
   touch-action: manipulation;
-  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-family: var(--font-inter), -apple-system, BlinkMacSystemFont, sans-serif;
+}
+
+/* Content visibility for non-visible elements */
+img:not([loading="eager"]) {
+  content-visibility: auto;
+  contain-intrinsic-size: auto 300px;
 }
 
 /* Better touch experience on mobile */
@@ -49,14 +55,16 @@ body {
   color: #f8fafc;
   -webkit-font-smoothing: antialiased; /* Better text rendering */
   -moz-osx-font-smoothing: grayscale;
-  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-family: var(--font-inter), -apple-system, BlinkMacSystemFont, sans-serif;
 }
 
-/* Add preload for heavy resources */
-.img-optimize {
-  content-visibility: auto; /* Improve scrolling performance */
+/* Image optimization */
+img {
+  height: auto; /* Maintain aspect ratio */
+  max-width: 100%;
 }
 
+/* Core button styles */
 .btn-primary {
   background-color: #e53935;
   color: white;

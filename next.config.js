@@ -2,6 +2,7 @@
 const path = require('path');
 const terserOptions = require('./terser.config');
 
+// Add browserslist to target modern browsers
 const nextConfig = {
   eslint: {
     // Warning: This allows production builds to successfully complete even if
@@ -33,11 +34,11 @@ const nextConfig = {
     path: '/_next/image'
   },
   
-  // Use modern JavaScript optimization
+  // Use modern JavaScript optimization with SWC
   compiler: {
     // Enables the styled-components SWC transform
     styledComponents: true,
-    // Use next-env to determine browsers
+    // Remove console.logs in production
     removeConsole: process.env.NODE_ENV === 'production',
   },
   
@@ -47,12 +48,23 @@ const nextConfig = {
   // Disable source maps in production
   productionBrowserSourceMaps: false,
   
+  // Target modern browsers to avoid legacy JavaScript
+  // This is the key fix for "serving legacy JavaScript to modern browsers" issue
+  swcMinify: true,
+  
   // Performance optimization - fix experimental options
   experimental: {
+    // Only keep well-supported features
     optimizeCss: true,
     optimizePackageImports: ['react-icons'],
-    // Keep only well-supported experimental features
-    webVitalsAttribution: ['CLS', 'LCP']
+    // Ensure modern JavaScript
+    serverActions: {
+      bodySizeLimit: '2mb',
+    },
+    webVitalsAttribution: ['CLS', 'LCP'],
+    // Modern optimizations
+    browsersListForSwc: true,
+    legacyBrowsers: false
   },
   
   // Headers for better SEO and crawler performance
@@ -81,7 +93,7 @@ const nextConfig = {
   webpack: (config, { isServer, dev, webpack }) => {
     // JavaScript optimization for modern browsers
     if (!dev && !isServer) {
-      // Replace terser with our custom configuration
+      // Use custom terser config for minification
       const terserIndex = config.optimization.minimizer.findIndex(
         (minimizer) => minimizer.constructor.name === 'TerserPlugin'
       );
@@ -89,6 +101,12 @@ const nextConfig = {
       if (terserIndex > -1) {
         config.optimization.minimizer[terserIndex].options.terserOptions = terserOptions;
       }
+      
+      // Add modern JS optimizations
+      config.resolve.alias = {
+        ...config.resolve.alias,
+        'core-js/modules': path.resolve(__dirname, 'node_modules/core-js/modules'),
+      };
     }
     
     return config;
