@@ -38,5 +38,17 @@
     "sharp": "^0.33.2",
     "tailwindcss": "^4",
     "typescript": "^5"
-  }
+  },
+  "browserslist": [
+    "> 0.5%",
+    "not dead",
+    "not IE 11",
+    "not Opera Mini all",
+    "not Baidu Explorer <= 11",
+    "supports es6-module",
+    "last 2 Chrome versions",
+    "last 2 Firefox versions",
+    "last 2 Safari versions",
+    "last 2 Edge versions"
+  ]
 }
