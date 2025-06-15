@@ -47,16 +47,12 @@ const nextConfig = {
   // Disable source maps in production
   productionBrowserSourceMaps: false,
   
-  // Performance optimization
+  // Performance optimization - fix experimental options
   experimental: {
     optimizeCss: true,
     optimizePackageImports: ['react-icons'],
-    // Additional modern optimizations
-    optimizeServerReact: true,
-    webVitalsAttribution: ['CLS', 'LCP'],
-    // Improve crawlability
-    workerThreads: true,
-    scrollRestoration: true
+    // Keep only well-supported experimental features
+    webVitalsAttribution: ['CLS', 'LCP']
   },
   
   // Headers for better SEO and crawler performance
@@ -93,23 +89,12 @@ const nextConfig = {
       if (terserIndex > -1) {
         config.optimization.minimizer[terserIndex].options.terserOptions = terserOptions;
       }
-      
-      config.optimization = {
-        ...config.optimization,
-        // Force tree shaking
-        usedExports: true,
-        sideEffects: true,
-        // Optimize small chunks
-        concatenateModules: true,
-        // Add environment variable to enable modern features
-        minimize: true
-      };
     }
     
     return config;
   },
   
-  // Redirects for better SEO
+  // Redirects for better SEO - simplify the redirects
   async redirects() {
     return [
       {
@@ -121,19 +106,7 @@ const nextConfig = {
         source: '/home',
         destination: '/',
         permanent: true,
-      },
-      // Redirect non-www to www (or vice versa, be consistent)
-      {
-        source: '/:path*',
-        has: [
-          {
-            type: 'host',
-            value: 'www.cardrummypk.org',
-          },
-        ],
-        destination: 'https://cardrummypk.org/:path*',
-        permanent: true,
-      },
+      }
     ];
   },
 };

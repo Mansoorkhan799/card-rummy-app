@@ -3,13 +3,10 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "next dev --turbopack",
-    "prebuild": "node scripts/browserlist-update.js && npm run optimize-images && npm run update-image-refs",
+    "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint",
-    "optimize-images": "node scripts/optimize-images.js",
-    "update-image-refs": "node scripts/update-image-references.js"
+    "lint": "next lint"
   },
   "dependencies": {
     "core-js": "^3.36.0",
