@@ -1,5 +1,5 @@
 {
-  "name": "webiste",
+  "name": "card-rummy-app",
   "version": "0.1.0",
   "private": true,
   "scripts": {
@@ -9,23 +9,23 @@
     "lint": "next lint"
   },
   "dependencies": {
-    "next": "14.1.0",
-    "react": "^18.2.0",
-    "react-dom": "^18.2.0",
-    "react-icons": "^5.0.1",
-    "styled-components": "^6.1.8"
+    "next": "13.5.6",
+    "react": "18.2.0",
+    "react-dom": "18.2.0",
+    "react-icons": "^4.12.0",
+    "styled-components": "^6.1.1"
   },
   "devDependencies": {
-    "@types/node": "^20.11.5",
-    "@types/react": "^18.2.48",
-    "@types/react-dom": "^18.2.18",
-    "autoprefixer": "^10.4.17",
-    "eslint": "^8.56.0",
-    "eslint-config-next": "14.1.0",
-    "postcss": "^8.4.33",
-    "sharp": "^0.33.2",
-    "tailwindcss": "^3.4.1",
-    "typescript": "^5.3.3"
+    "@types/node": "^20.10.0",
+    "@types/react": "^18.2.39",
+    "@types/react-dom": "^18.2.17",
+    "autoprefixer": "^10.4.16",
+    "eslint": "^8.54.0",
+    "eslint-config-next": "13.5.6",
+    "postcss": "^8.4.31",
+    "sharp": "^0.32.6",
+    "tailwindcss": "^3.3.5",
+    "typescript": "^5.3.2"
   },
   "browserslist": [
     "> 0.5%",
