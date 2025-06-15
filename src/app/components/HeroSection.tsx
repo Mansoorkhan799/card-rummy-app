@@ -1,7 +1,7 @@
-import Image from 'next/image';
 import Link from 'next/link';
 import { FiDownload, FiUsers, FiAward, FiDollarSign, FiChevronDown } from 'react-icons/fi';
 import { useState, useEffect } from 'react';
+import OptimizedImage from './OptimizedImage';
 
 export default function HeroSection() {
   // Use null as initial state instead of false to avoid hydration mismatch
@@ -91,18 +91,25 @@ export default function HeroSection() {
           </div>
           <div className="md:w-1/2 relative mt-8 md:mt-0 flex justify-center items-center">
             <div className="relative w-auto h-auto max-w-[250px] md:max-w-[400px] max-h-[250px] md:max-h-[400px]">
-              <Image
-                src="/Card-rummy.webp"
+              <OptimizedImage
+                src="/optimized/Card-rummy.webp"
+                webpSrc="/optimized/Card-rummy.webp"
+                avifSrc="/optimized/Card-rummy.avif"
                 alt="Screenshot of Card Rummy game interface"
                 width={400}
                 height={400}
-                sizes="(max-width: 768px) 250px, 400px"
-                quality={80}
+                sizes="(max-width: 640px) 250px, (max-width: 768px) 350px, 400px"
+                quality={75}
                 priority
                 fetchPriority="high"
                 loading="eager"
                 placeholder="blur"
                 blurDataURL="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mNcvXp1PQAGTwJs6OQmwAAAAABJRU5ErkJggg=="
+                style={{
+                  maxWidth: '100%',
+                  height: 'auto',
+                  objectFit: 'contain'
+                }}
               />
             </div>
           </div>

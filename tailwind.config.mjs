@@ -8,6 +8,9 @@ export default {
         secondary: '#1e3a8a',
         accent: '#fbbf24',
       },
+      fontFamily: {
+        sans: ['Inter', '-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'Roboto', 'Helvetica Neue', 'Arial', 'sans-serif'],
+      },
     },
   },
   plugins: [],

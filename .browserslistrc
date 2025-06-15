@@ -1,0 +1,10 @@
+# Target modern browsers to avoid unnecessary transpilation
+# This helps reduce JavaScript size by avoiding polyfills and transpiled code
+
+last 2 versions
+not dead
+> 0.5%
+not ie 11
+not op_mini all
+not baidu > 0
+not kaios > 0 

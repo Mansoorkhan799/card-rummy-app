@@ -122,7 +122,7 @@ export default function Header() {
           <Link href="/" className="flex items-center group">
             <div className="w-8 h-8 rounded mr-2 group-hover:scale-110 transition-transform overflow-hidden">
               <Image 
-                src="/Card-rummy.webp" 
+                src="/optimized/Card-rummy.webp" 
                 alt="Card Rummy logo" 
                 role="img"
                 aria-label="Card Rummy logo"

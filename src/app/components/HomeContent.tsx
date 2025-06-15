@@ -131,7 +131,7 @@ export default function HomeContent() {
             </p>
             <div className="my-6">
               <Image
-                src="/images/card-rummy-apk-pakistan.png"
+                src="/optimized/card-rummy-apk-pakistan.webp"
                 alt="Card Rummy APK Pakistan"
                 width={400}
                 height={225}
@@ -295,7 +295,7 @@ export default function HomeContent() {
               </div>
               <div className="my-4 flex justify-center">
                 <Image
-                  src="/card rummy apk.webp"
+                  src="/optimized/card rummy apk.webp"
                   alt="Card Rummy APK Features"
                   width={400}
                   height={225}
@@ -545,7 +545,7 @@ export default function HomeContent() {
                 <h4 className="text-xl font-bold mb-3 text-left">Deposit:</h4>
                 <div className="my-4 flex justify-center">
                   <Image
-                    src="/card rummy add money.webp"
+                    src="/optimized/card rummy add money.webp"
                     alt="Card Rummy Add Money"
                     className="rounded-lg shadow-lg max-w-full h-auto border-2 border-[#fbbf24]/30"
                     width={400}
@@ -562,7 +562,7 @@ export default function HomeContent() {
                 <h4 className="text-xl font-bold mb-3 text-left">Withdraw:</h4>
                 <div className="my-4 flex justify-center">
                   <Image
-                    src="/card rummy withdraw money.webp"
+                    src="/optimized/card rummy withdraw money.webp"
                     alt="Card Rummy Withdraw Money"
                     className="rounded-lg shadow-lg max-w-full h-auto border-2 border-[#fbbf24]/30"
                     width={400}
@@ -593,7 +593,7 @@ export default function HomeContent() {
               </div>
               <div className="flex justify-center items-center">
                 <Image
-                  src="/card rummy refferal.webp"
+                  src="/optimized/card rummy refferal.webp"
                   alt="Card Rummy Referral Program"
                   className="rounded-lg shadow-lg max-w-full h-auto border-2 border-[#fbbf24]/30"
                   width={400}

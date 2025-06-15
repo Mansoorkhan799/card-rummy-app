@@ -1,29 +1,13 @@
 "use client";
 
 import Link from 'next/link';
-import Image from 'next/image';
 import { FiFacebook, FiTwitter, FiLinkedin, FiExternalLink } from 'react-icons/fi';
 import { FaPinterest } from 'react-icons/fa';
-import { useState, useEffect } from 'react';
+import OptimizedImage from './OptimizedImage';
 
 export default function Footer() {
   const currentYear = new Date().getFullYear();
-  // Use null as initial state to avoid hydration mismatch
-  const [imageUrl, setImageUrl] = useState<string | null>(null);
   
-  // Apply cache busting only after hydration is complete
-  useEffect(() => {
-    // Set initial image URL
-    setImageUrl('/Card-rummy.webp');
-    
-    // Wait a short time to ensure hydration is complete
-    const timer = setTimeout(() => {
-      setImageUrl(`/Card-rummy.webp?v=${Date.now()}`);
-    }, 100);
-    
-    return () => clearTimeout(timer);
-  }, []);
-
   return (
     <footer className="bg-[#080f24] text-white py-10 border-t border-[#2a3f73]">
       <div className="container mx-auto px-4">
@@ -31,13 +15,22 @@ export default function Footer() {
           {/* Column 1 - About */}
           <div>
             <div className="flex items-center gap-3 mb-4">
-              <Image 
-                src={imageUrl || '/Card-rummy.webp'} // Fallback for SSR
+              <OptimizedImage 
+                src="/optimized/Card-rummy.webp"
+                webpSrc="/optimized/Card-rummy.webp" 
+                avifSrc="/optimized/Card-rummy.avif"
                 alt="Card Rummy logo"
                 width={40} 
                 height={40} 
                 className="rounded-md"
                 priority
+                quality={75}
+                sizes="40px"
+                style={{
+                  width: '40px',
+                  height: '40px',
+                  objectFit: 'contain'
+                }}
               />
               <h3 className="text-xl font-bold text-white">Card Rummy</h3>
             </div>

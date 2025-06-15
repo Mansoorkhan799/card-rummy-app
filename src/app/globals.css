@@ -9,6 +9,7 @@
   --text-dark: #0f172a;
   --accent-color: #fbbf24;
   touch-action: manipulation;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
 }
 
 /* Better touch experience on mobile */
@@ -48,6 +49,7 @@ body {
   color: #f8fafc;
   -webkit-font-smoothing: antialiased; /* Better text rendering */
   -moz-osx-font-smoothing: grayscale;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
 }
 
 /* Add preload for heavy resources */

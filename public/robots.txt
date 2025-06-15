@@ -1,0 +1,28 @@
+# Allow all web crawlers
+User-agent: *
+Allow: /
+Disallow: /api/
+Disallow: /_next/static/
+
+# Allow all for Google
+User-agent: Googlebot
+Allow: /
+Crawl-delay: 1
+
+# Allow Google Image bot
+User-agent: Googlebot-Image
+Allow: /optimized/
+Allow: /images/
+Allow: /*.jpg$
+Allow: /*.jpeg$
+Allow: /*.webp$
+Allow: /*.avif$
+Allow: /*.png$
+Allow: /*.svg$
+
+# Allow Google Mobile bot
+User-agent: Googlebot-Mobile
+Allow: /
+
+# Sitemap location
+Sitemap: https://cardrummypk.org/sitemap.xml 
