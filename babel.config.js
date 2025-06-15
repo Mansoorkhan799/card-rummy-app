@@ -4,18 +4,19 @@ module.exports = {
       'next/babel',
       {
         'preset-env': {
-          targets: {
-            esmodules: true
+          targets: { 
+            browsers: [
+              '> 0.5%',
+              'not dead',
+              'not IE 11',
+              'not Opera Mini all',
+              'supports es6-module'
+            ]
           },
-          // Explicitly exclude transformations for features that modern browsers support
+          // Exclude only the most fundamental transformations
           exclude: [
             '@babel/plugin-transform-regenerator',
-            '@babel/plugin-transform-async-to-generator',
-            '@babel/plugin-transform-spread',
-            '@babel/plugin-transform-destructuring',
-            '@babel/plugin-transform-template-literals',
-            '@babel/plugin-transform-arrow-functions',
-            '@babel/plugin-transform-parameters'
+            '@babel/plugin-transform-async-to-generator'
           ],
           // Don't add polyfills automatically
           useBuiltIns: false,

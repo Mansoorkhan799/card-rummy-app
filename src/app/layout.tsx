@@ -1,7 +1,6 @@
 import { Metadata, Viewport } from 'next';
 import './globals.css';
 import JsonLd from './components/JsonLd';
-import Script from 'next/script';
 import { Inter } from 'next/font/google';
 
 // Optimize font loading
@@ -114,13 +113,6 @@ export default function RootLayout({
           fetchPriority="high"
           type="image/webp"
         />
-        <link 
-          rel="preload"
-          href="/optimized/Card-rummy.avif"
-          as="image"
-          fetchPriority="high" 
-          type="image/avif"
-        />
         
         {/* Preconnects for critical third-party resources */}
         <link rel="preconnect" href="https://pkcardrummy.com" crossOrigin="anonymous" />
@@ -130,29 +122,6 @@ export default function RootLayout({
         
         {/* DNS prefetching */}
         <link rel="dns-prefetch" href="//pkcardrummy.com" />
-        
-        {/* Hide render-blocking script until interaction */}
-        <Script id="hydration-fix" strategy="lazyOnload">
-          {`
-            (function() {
-              // Clear any extension-added attributes that might cause hydration issues
-              document.addEventListener('DOMContentLoaded', function() {
-                setTimeout(function() {
-                  const body = document.body;
-                  if (body) {
-                    // Remove common extension attributes that cause hydration mismatches
-                    if (body.hasAttribute('data-new-gr-c-s-check-loaded')) {
-                      body.removeAttribute('data-new-gr-c-s-check-loaded');
-                    }
-                    if (body.hasAttribute('data-gr-ext-installed')) {
-                      body.removeAttribute('data-gr-ext-installed');
-                    }
-                  }
-                }, 0);
-              });
-            })();
-          `}
-        </Script>
       </head>
       <body className="font-sans h-full overflow-x-hidden" suppressHydrationWarning>
         <JsonLd type="WebSite" data={websiteData} />

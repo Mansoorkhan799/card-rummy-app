@@ -57,20 +57,9 @@ const nextConfig = {
     // Only keep well-supported features
     optimizeCss: true,
     optimizePackageImports: ['react-icons'],
-    // Ensure modern JavaScript
-    serverActions: {
-      bodySizeLimit: '2mb',
-    },
-    webVitalsAttribution: ['CLS', 'LCP'],
-    // Modern optimizations
+    // Modern JavaScript support
     browsersListForSwc: true,
     legacyBrowsers: false,
-    // Specifically enable modern output
-    modularizeImports: {
-      'react-icons': {
-        transform: 'react-icons/{{member}}',
-      }
-    },
   },
   
   // Headers for better SEO and crawler performance
@@ -110,68 +99,22 @@ const nextConfig = {
     ];
   },
   
-  webpack: (config, { isServer, dev, webpack }) => {
-    // Add support for modern JavaScript
+  // Simplified webpack configuration
+  webpack: (config, { isServer, dev }) => {
     if (!isServer) {
-      // Use the browserslist config for all webpack targets
+      // Ensure we use modern JS features
       config.target = 'web';
       
-      // Prevent core-js polyfills from being included
-      config.resolve.alias = {
-        ...config.resolve.alias,
-        // Replace core-js imports with empty module
-        'core-js/modules': false,
-        'core-js/features': false,
-        'core-js/es': false,
-        'core-js': false,
-      };
-      
-      // Use terser for minification
+      // For production builds, optimize further
       if (!dev) {
+        // Apply terser optimizations
         const terserIndex = config.optimization.minimizer.findIndex(
           minimizer => minimizer.constructor.name === 'TerserPlugin'
         );
         
         if (terserIndex > -1) {
-          config.optimization.minimizer[terserIndex].options.terserOptions = {
-            ...terserOptions,
-            // Additional settings to avoid polyfills
-            compress: {
-              ...terserOptions.compress,
-              // Remove unused code more aggressively
-              unused: true,
-              passes: 3,
-            }
-          };
+          config.optimization.minimizer[terserIndex].options.terserOptions = terserOptions;
         }
-        
-        // Split chunks to optimize caching
-        config.optimization.splitChunks = {
-          chunks: 'all',
-          cacheGroups: {
-            defaultVendors: {
-              test: /[\\/]node_modules[\\/]/,
-              priority: -10,
-              reuseExistingChunk: true,
-            },
-            default: {
-              minChunks: 2,
-              priority: -20,
-              reuseExistingChunk: true,
-            },
-          },
-        };
-        
-        // Mark modern output
-        config.output.environment = {
-          arrowFunction: true,
-          bigIntLiteral: true,
-          const: true,
-          destructuring: true,
-          dynamicImport: true,
-          forOf: true,
-          module: true,
-        };
       }
     }
     

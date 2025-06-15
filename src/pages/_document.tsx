@@ -4,7 +4,16 @@ export default function Document() {
   return (
     <Html lang="en">
       <Head>
-        {/* Add any global scripts or meta tags here */}
+        {/* Add module/nomodule pattern for optimal browser support */}
+        <script
+          type="module"
+          dangerouslySetInnerHTML={{
+            __html: `
+              // Mark document as using modules for feature detection
+              document.documentElement.dataset.jsModule = '';
+            `,
+          }}
+        />
       </Head>
       <body>
         {/* This script helps remove attributes added by browser extensions */}
